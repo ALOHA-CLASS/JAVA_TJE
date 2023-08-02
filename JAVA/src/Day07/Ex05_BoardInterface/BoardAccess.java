@@ -1,11 +1,11 @@
-package Day06.Board;
+package Day07.Ex05_BoardInterface;
 
 import java.sql.SQLException;
 
-public class DataAccess extends JDBConnection {
+public class BoardAccess extends JDBConnection implements DataService {
 	
 	// 데이터 목록 조회
-	public Board[] selectList() {
+	public Text[] selectList() {
 		
 		int max = Main.max;
 		Board[] boardList = new Board[max];
@@ -44,7 +44,7 @@ public class DataAccess extends JDBConnection {
 	}
 	
 	// 데이터 조회
-	public Board select(int boardNo) {
+	public Text select(int no) {
 		Board board = new Board();
 		String sql = " SELECT * "
 				   + " FROM board "
@@ -53,7 +53,7 @@ public class DataAccess extends JDBConnection {
 		try {
 			psmt = con.prepareStatement(sql);		// 쿼리 실행 객체 생성
 			// psmt.setXXX( 순서번호, 매핑할 값 );
-			psmt.setInt(1, boardNo);				// ?(1) <-- boardNo(글번호)
+			psmt.setInt(1, no);				// ?(1) <-- boardNo(글번호)
 			rs = psmt.executeQuery();				// 쿼리 실행
 
 			// 조회 결과 가져오기
@@ -74,7 +74,7 @@ public class DataAccess extends JDBConnection {
 	}
 	
 	// 데이터 등록
-	public int insert(Board board) {
+	public int insert(Text text) {
 		int result = 0;
 		
 		String sql = " INSERT INTO board( title, writer, content ) "
@@ -82,9 +82,9 @@ public class DataAccess extends JDBConnection {
 	
 		try {
 			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
-			psmt.setString(1, board.getTitle());		// 1번 ? 에 제목을 매핑
-			psmt.setString(2, board.getWriter());		// 2번 ? 에 작성자을 매핑
-			psmt.setString(3, board.getContent());		// 3번 ? 에 내용을 매핑
+			psmt.setString(1, text.getTitle());		// 1번 ? 에 제목을 매핑
+			psmt.setString(2, text.getWriter());		// 2번 ? 에 작성자을 매핑
+			psmt.setString(3, text.getContent());		// 3번 ? 에 내용을 매핑
 			
 			result = psmt.executeUpdate();				// SQL 실행 요청, 적용된 데이터 개수를 받아옴
 														// 게시글 1개 쓰기 성공 시, result : 1
@@ -97,7 +97,7 @@ public class DataAccess extends JDBConnection {
 	}
 	
 	// 데이터 수정
-	public int update(Board board) {
+	public int update(Text text) {
 		
 		int result = 0;
 		
@@ -112,10 +112,10 @@ public class DataAccess extends JDBConnection {
 
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, board.getTitle());		// 1번 ? 에 제목을 매핑
-			psmt.setString(2, board.getWriter());		// 2번 ? 에 작성자을 매핑
-			psmt.setString(3, board.getContent());		// 3번 ? 에 내용을 매핑
-			psmt.setInt(4, board.getBoardNo());			// 4번 ? 에 게시글 번호를 매핑
+			psmt.setString(1, text.getTitle());		// 1번 ? 에 제목을 매핑
+			psmt.setString(2, text.getWriter());		// 2번 ? 에 작성자을 매핑
+			psmt.setString(3, text.getContent());		// 3번 ? 에 내용을 매핑
+			psmt.setInt(4, text.getNo());			// 4번 ? 에 게시글 번호를 매핑
 			
 			result = psmt.executeUpdate();				// SQL 실행 요청, 적용된 데이터 개수를 받아옴
 														// 게시글 1개 수정 성공 시, result : 1
@@ -128,7 +128,7 @@ public class DataAccess extends JDBConnection {
 	}
 
 	// 데이터 삭제
-	public int delete(int boardNo) {
+	public int delete(int no) {
 		int result = 0;
 		
 		String sql = " DELETE FROM board "
@@ -136,7 +136,7 @@ public class DataAccess extends JDBConnection {
 		
 		try {
 			psmt = con.prepareStatement(sql);	// 쿼리 실행 객체 생성
-			psmt.setInt(1, boardNo);			// 1번 ? 에 글번호를 매핑
+			psmt.setInt(1, no);			// 1번 ? 에 글번호를 매핑
 			
 			result = psmt.executeUpdate();		// SQL 실행 요청
 		} catch (SQLException e) {
