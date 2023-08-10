@@ -4,7 +4,10 @@ package application;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
@@ -45,18 +48,39 @@ public class Main extends Application {
 		line2.setRotate(35);
 		
 		Rectangle rectangle = new Rectangle();
-		rectangle.setX(400);
-		rectangle.setY(200);
+		rectangle.setX(380);
+		rectangle.setY(150);
 		rectangle.setWidth(100);
 		rectangle.setHeight(100);
 		rectangle.setFill(Color.SPRINGGREEN);
 		
-		// Polygon 부터 할것...
+		Polygon triangle = new Polygon();
+		triangle.getPoints()
+				.setAll(100.0, 150.0,
+						200.0, 250.0,
+						100.0, 250.0);
+		triangle.setFill(Color.YELLOW);
+
+		Circle circle = new Circle();
+		circle.setCenterX(280);
+		circle.setCenterY(200);
+		circle.setRadius(50);
+		circle.setFill(Color.ORANGE);
+		
+		Image image = new Image("icon.png");
+		ImageView imageView = new ImageView(image);
+		imageView.setFitWidth(240);
+		imageView.setFitHeight(240);
+		imageView.setX(320);
+		imageView.setY(280);
 	
 		root.getChildren().add(text);
 		root.getChildren().add(line);
 		root.getChildren().add(line2);
 		root.getChildren().add(rectangle);
+		root.getChildren().add(triangle);
+		root.getChildren().add(circle);
+		root.getChildren().add(imageView);
 		stage.setScene(scene);
 		stage.show();
 	}
