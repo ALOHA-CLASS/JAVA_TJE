@@ -144,6 +144,7 @@ public class Main {
 	
 	// 게시판 프로그램 시작
 	public static void main(String[] args) {
+		
 		int menuNo = 0;			// 메뉴번호
 		do {
 			menu();						// 메뉴판 출력

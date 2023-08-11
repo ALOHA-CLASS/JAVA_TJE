@@ -59,7 +59,7 @@ public class Person implements Comparable<Person> {
 		// 방법2
 		int gap = thisAge - comAge;	    // 오름차순
 		int gap2 = comAge - thisAge;  	// 내림차순
-		return gap2;
+		return gap;
 	}
 
 }
