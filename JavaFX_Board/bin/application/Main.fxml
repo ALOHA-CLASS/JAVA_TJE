@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="880.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="0.0" layoutY="30.0" prefHeight="50.0" prefWidth="880.0" text="게시판">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
+      <TableView fx:id="boardTableView" layoutX="31.0" layoutY="120.0" prefHeight="400.0" prefWidth="820.0">
+        <columns>
+          <TableColumn fx:id="colBoardNo" prefWidth="100.0" resizable="false" styleClass="tableCol" text="글 번호" />
+          <TableColumn id="tableColTitle" fx:id="colTitle" prefWidth="280.0" resizable="false" styleClass="tableCol" text="제목" />
+            <TableColumn fx:id="colWriter" prefWidth="120.0" resizable="false" styleClass="tableCol" text="작성자" />
+            <TableColumn fx:id="colRegDate" prefWidth="160.0" resizable="false" styleClass="tableCol" text="등록일자" />
+            <TableColumn fx:id="colUpdDate" prefWidth="160.0" resizable="false" styleClass="tableCol" text="수정일자" />
+        </columns>
+      </TableView>
+      <Button layoutX="753.0" layoutY="532.0" mnemonicParsing="false" onAction="#moveToInsert" prefHeight="40.0" prefWidth="100" text="글쓰기">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="31.0" layoutY="532.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="100" text="종료하기">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

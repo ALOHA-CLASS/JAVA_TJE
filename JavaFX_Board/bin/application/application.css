@@ -1,0 +1,50 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+.button {
+    -fx-background-color: linear-gradient(to bottom, derive(cornflowerblue, 20%), derive(cornflowerblue, -20%));
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 10 20;
+    -fx-font-size: 14;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(cornflowerblue, 10%), derive(cornflowerblue, -10%));
+}
+
+/* TableView 헤더 스타일 */
+.table-view {
+	
+}
+
+.table-view .column-header {
+	-fx-background-color: cornflowerblue;
+	-fx-background-color: linear-gradient(to bottom, derive(cornflowerblue, 20%), derive(cornflowerblue, -20%));
+    -fx-text-fill: white;
+}
+
+.table-row-cell:filled:selected:focused, .table-row-cell:filled:selected {
+	-fx-background-color: transparent;
+	-fx-border-color: royalblue;
+}
+
+.table-row-cell:filled:selected:focused *, .table-row-cell:filled:selected * {
+	-fx-text-fill: black; 
+}
+
+.tableCol {
+	-fx-font-size: 16px;
+	-fx-alignment: CENTER;	
+}
+
+.tableCol * {
+	-fx-text-fill: white;
+}
+
+
+#tableColTitle {
+	-fx-alignment: CENTER-LEFT;
+	
+}
+
