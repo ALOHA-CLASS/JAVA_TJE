@@ -3,7 +3,7 @@
 
 
 ### 강의 다시보기
-<a href="https://www.youtube.com/playlist?list=PL4C2AmBC9jOZagk3XNV5pIiuK2J4b_VY9" target="_blank">유튜브 동영상 (강의 다시보기)</a>
+<a href="https://www.youtube.com/watch?v=tKwEOt0w3YU&list=PL4C2AmBC9jOb-1o-jOnWFZSJ0-d2HiSQ3" target="_blank">유튜브 동영상 (강의 다시보기)</a>
 
 
 ## 커리큘럼
